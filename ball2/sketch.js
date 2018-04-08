@@ -20,9 +20,11 @@ function draw() {
 
    speedY += a;
 
-   if(x > width - r || x < r) {
-      speedX = -0.8*speedX;
-//      print ("speedX = " + speedX);
+   if(x > width - r) {
+      speedX = -0.8*abs(speedX);
+   }
+   else if(x < r) {
+      speedX = 0.8*abs(speedX);      
    }
 
    if(y > height - r) {
