@@ -6,12 +6,12 @@ class Blob
       this.y = y;
 
       var angle = random(0, 2*PI);
-      var m = random(2,5);
+      var m = random(1,3);
 
       this.xspeed = m*cos(angle);
       this.yspeed = m*sin(angle);
 
-      this.r = random(120, 240);
+      this.r = random(120, 340);
    }
 
    update()

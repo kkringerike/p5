@@ -54,11 +54,12 @@ function draw() {
         bright = 0;
       }
 
-      var pix = (x + y * width) * 4;
-      pixels[pix + 0] = bright;
-      pixels[pix + 1] = bright;
-      pixels[pix + 2] = bright;
-      pixels[pix + 3] = 255;
+      set(x, y, color(bright));
+      // var pix = (x + y * width) * 4;
+      // pixels[pix + 0] = bright;
+      // pixels[pix + 1] = bright;
+      // pixels[pix + 2] = bright;
+      // pixels[pix + 3] = 255;
     }
   }
   updatePixels();

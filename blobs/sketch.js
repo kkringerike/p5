@@ -2,8 +2,9 @@ var blobs = []
 
 function setup() 
 {
-   createCanvas(400, 300);
-   colorMode(HSB);
+   createCanvas(500, 400);
+   // colorMode(HSB);
+   pixelDensity(1);
 
    for(i = 0; i < 10; i++)
       blobs.push(new Blob(random(0, width), random(0, height)));
@@ -23,11 +24,31 @@ function draw()
 
          for(i = 0; i < blobs.length; i++)
          {
-            var d = dist(x, y, blobs[i].x, blobs[i].y);
+            var dx = (blobs[i].x - x);
+            var dy = (blobs[i].y - y);
+            var d = sqrt(dx*dx + dy*dy);
+
             sum += 10*blobs[i].r/d;
+
+            // var d = dist(x, y, blobs[i].x, blobs[i].y);
+            // sum += 10*blobs[i].r/d;
          }
 
-         set(x, y, color(sum, 255, 255));
+
+         var pix = (x + y * width) * 4;
+
+         pixels[pix + 0] = sum;
+         pixels[pix + 1] = sum;
+         pixels[pix + 2] = 255;
+         pixels[pix + 3] = 255;
+
+         // var c = color(sum, 255, 255);
+         // pixels[pix + 0] = red(c);
+         // pixels[pix + 1] = green(c);
+         // pixels[pix + 2] = blue(c);
+         // pixels[pix + 3] = 255;
+
+//         set(x, y, color(sum, 255, 255));
       }
    }
 
